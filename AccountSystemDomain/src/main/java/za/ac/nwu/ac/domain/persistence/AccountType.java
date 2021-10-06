@@ -36,6 +36,9 @@ public class AccountType implements Serializable {
     }
 
     public AccountType(String mnemonic, String accountTypeName, LocalDate creationDate) {
+        this.mnemonic = mnemonic;
+        this.accountTypeName = accountTypeName;
+        this.creationDate = creationDate;
     }
 
     public Long getAccountTypeId() {
