@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import za.ac.nwu.ac.domain.dto.AccountTypeDto;
 import za.ac.nwu.ac.domain.service.GeneralResponse;
 import za.ac.nwu.ac.logic.flow.FetchAccountTypeFlow;
 
@@ -18,7 +19,7 @@ import java.util.List;
 @RequestMapping("account-type")
 public class AccountTypeController {
 
-    private final FetchAccountTypeFlow;
+    private final FetchAccountTypeFlow fetchAccountTypeFlow;
 
     @Autowired
     public AccountTypeController(FetchAccountTypeFlow fetchAccountTypeFlow){
@@ -33,8 +34,8 @@ public class AccountTypeController {
             @ApiResponse(code = 404, message = "Not found", response = GeneralResponse.class),
             @ApiResponse(code = 500, message = "Internal Server Error", response = GeneralResponse.class)
     })
-    public ResponseEntity<GeneralResponse<String>> getAll() {
-        List<AccountTypeDto> accountTypes = fetchAccountFlow.getAllAccountTypes();
+    public ResponseEntity<GeneralResponse<List<AccountTypeDto>>> getAll() {
+        List<AccountTypeDto> accountTypes = fetchAccountTypeFlow.getAllAccountTypes();
         GeneralResponse<List<AccountTypeDto>> response = new GeneralResponse<>(true, accountTypes);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }

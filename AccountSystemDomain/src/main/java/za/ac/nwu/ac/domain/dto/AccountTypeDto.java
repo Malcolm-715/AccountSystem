@@ -2,10 +2,12 @@ package za.ac.nwu.ac.domain.dto;
 
 import za.ac.nwu.ac.domain.persistence.AccountType;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
 
-public class AccountTypeDto {
+public class AccountTypeDto implements Serializable {
+    private static final long serialVersionUID = 5624740256343553628L;
     private String mnemonic;
     private String accountTypeName;
     private LocalDate creationDate;
