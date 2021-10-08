@@ -99,7 +99,7 @@ public class AccountTypeController {
                     name = "mnemonic",
                     required = true)
             @PathVariable("mnemonic") final String mnemonic) {
-        AccountTypeDto accountType = modifyAccountTypeFlow.deleteAccountType(mnemonic);
+        AccountTypeDto accountType = (AccountTypeDto) modifyAccountTypeFlow.deleteAccountType(mnemonic);
         GeneralResponse<AccountTypeDto> response = new GeneralResponse<>(true, accountType);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
@@ -130,7 +130,7 @@ public class AccountTypeController {
             @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
                     LocalDate newCreationDate
             ) {
-        AccountTypeDto accountType = modifyAccountTypeFlow.updateAccountType(mnemonic, newAccountTypeName, newCreationDate);
+        AccountTypeDto accountType = (AccountTypeDto) modifyAccountTypeFlow.updateAccountType(mnemonic, newAccountTypeName, newCreationDate);
         GeneralResponse<AccountTypeDto> response = new GeneralResponse<>(true, accountType);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }

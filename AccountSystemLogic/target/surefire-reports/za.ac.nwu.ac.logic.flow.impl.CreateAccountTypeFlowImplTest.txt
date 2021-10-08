@@ -1,8 +1,0 @@
--------------------------------------------------------------------------------
-Test set: za.ac.nwu.ac.logic.flow.impl.CreateAccountTypeFlowImplTest
--------------------------------------------------------------------------------
-Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 2.113 s <<< FAILURE! - in za.ac.nwu.ac.logic.flow.impl.CreateAccountTypeFlowImplTest
-create(za.ac.nwu.ac.logic.flow.impl.CreateAccountTypeFlowImplTest)  Time elapsed: 0.32 s  <<< FAILURE!
-java.lang.AssertionError: Should throw an exception
-	at za.ac.nwu.ac.logic.flow.impl.CreateAccountTypeFlowImplTest.create(CreateAccountTypeFlowImplTest.java:42)
-
