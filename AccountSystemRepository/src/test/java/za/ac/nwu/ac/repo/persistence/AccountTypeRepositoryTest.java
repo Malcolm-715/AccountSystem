@@ -9,6 +9,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
+import za.ac.nwu.ac.domain.dto.AccountTypeDto;
 import za.ac.nwu.ac.domain.persistence.AccountType;
 import za.ac.nwu.ac.repo.config.RepositoryTestConfig;
 
@@ -66,21 +67,21 @@ public class AccountTypeRepositoryTest {
 
     @Test
     public void getAccountTypeDtoByMnemonicMiles() {
-        AccountType miles = accountTypeRepository.getAccountTypeDtoByMnemonic("MILES");
+        AccountTypeDto miles = accountTypeRepository.getAccountTypeDtoByMnemonic("MILES");
         assertNotNull(miles);
         assertEquals("MILES", miles.getMnemonic());
     }
 
     @Test
     public void getAccountTypeDtoByMnemonicPlay() {
-        AccountType miles = accountTypeRepository.getAccountTypeDtoByMnemonic("PLAY");
+        AccountTypeDto miles = accountTypeRepository.getAccountTypeDtoByMnemonic("PLAY");
         assertNotNull(miles);
         assertEquals("PLAY", miles.getMnemonic());
     }
 
     @Test
     public void getAccountTypeDtoByMnemonic() {
-        AccountType miles = accountTypeRepository.getAccountTypeDtoByMnemonic("R");
+        AccountTypeDto miles = accountTypeRepository.getAccountTypeDtoByMnemonic("R");
         assertNull(miles);
     }
 }

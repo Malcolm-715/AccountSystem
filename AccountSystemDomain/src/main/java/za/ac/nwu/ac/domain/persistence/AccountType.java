@@ -1,5 +1,7 @@
 package za.ac.nwu.ac.domain.persistence;
 
+import za.ac.nwu.ac.domain.dto.AccountTypeDto;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -8,7 +10,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "DEMO_ACCOUNT_TYPE", schema = "VITRSA_SANDBOX")
-public class AccountType implements Serializable {
+public class AccountType extends AccountTypeDto implements Serializable {
 
     private static final long serialVersionUID = 3833725316797154577L;
     @Id
