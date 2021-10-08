@@ -41,6 +41,9 @@ public class AccountType implements Serializable {
         this.creationDate = creationDate;
     }
 
+    public AccountType(AccountType accountType) {
+    }
+
     public Long getAccountTypeId() {
         return accountTypeId;
     }

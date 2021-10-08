@@ -9,7 +9,6 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
-import za.ac.nwu.ac.domain.dto.AccountTypeDto;
 import za.ac.nwu.ac.domain.persistence.AccountType;
 import za.ac.nwu.ac.repo.config.RepositoryTestConfig;
 
@@ -25,11 +24,11 @@ public class AccountTypeRepositoryTest {
     AccountTypeRepository accountTypeRepository;
 
     @Before
-    public void setUp(){
+    public void setUp() throws Exception{
     }
 
     @After
-    public void tearDown(){}
+    public void tearDown() throws Exception{}
 
     @Test
     public void getAccountTypeByMnemonicNativeQueryMiles() {
@@ -40,7 +39,7 @@ public class AccountTypeRepositoryTest {
 
     @Test
     public void getAccountTypeByMnemonicNativeQuery() {
-        AccountType miles = accountTypeRepository.getAccountTypeByMnemonicNativeQuery("MILES");
+        AccountType miles = accountTypeRepository.getAccountTypeByMnemonicNativeQuery("MILESSS");
         assertNotNull(miles);
         assertEquals("MILES", miles.getMnemonic());
     }
@@ -67,21 +66,21 @@ public class AccountTypeRepositoryTest {
 
     @Test
     public void getAccountTypeDtoByMnemonicMiles() {
-        AccountTypeDto miles = accountTypeRepository.getAccountTypeDtoByMnemonic("MILES");
+        AccountType miles = accountTypeRepository.getAccountTypeDtoByMnemonic("MILES");
         assertNotNull(miles);
         assertEquals("MILES", miles.getMnemonic());
     }
 
     @Test
     public void getAccountTypeDtoByMnemonicPlay() {
-        AccountTypeDto miles = accountTypeRepository.getAccountTypeDtoByMnemonic("PLAY");
+        AccountType miles = accountTypeRepository.getAccountTypeDtoByMnemonic("PLAY");
         assertNotNull(miles);
         assertEquals("PLAY", miles.getMnemonic());
     }
 
     @Test
     public void getAccountTypeDtoByMnemonic() {
-        AccountTypeDto miles = accountTypeRepository.getAccountTypeDtoByMnemonic("R");
+        AccountType miles = accountTypeRepository.getAccountTypeDtoByMnemonic("R");
         assertNull(miles);
     }
 }
