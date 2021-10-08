@@ -6,6 +6,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 import za.ac.nwu.ac.domain.dto.AccountTypeDto;
@@ -16,18 +17,19 @@ import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
+@SpringBootTest
 @ContextConfiguration(classes = {RepositoryTestConfig.class})
-public class AccountTypeRespositoryTest {
+public class AccountTypeRepositoryTest {
 
     @Autowired
     AccountTypeRepository accountTypeRepository;
 
     @Before
-    public void setUp() throws Exception{
+    public void setUp(){
     }
 
     @After
-    public void tearDown() throws Exception{}
+    public void tearDown(){}
 
     @Test
     public void getAccountTypeByMnemonicNativeQueryMiles() {
