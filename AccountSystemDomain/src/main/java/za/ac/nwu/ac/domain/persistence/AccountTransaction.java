@@ -1,6 +1,8 @@
 package za.ac.nwu.ac.domain.persistence;
 
 
+import za.ac.nwu.ac.domain.dto.AccountTransactionDetailsDto;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -16,17 +18,19 @@ public class AccountTransaction implements Serializable {
     private AccountType accountType;
     public Long memberId;
     public Long amount;
-    public Long transactionDate;
+    public LocalDate transactionDate;
+    private AccountTransactionDetailsDto details;
 
     public AccountTransaction() {
     }
 
-    public AccountTransaction(Long transactionId, AccountType accountType, Long memberId, Long amount, Long transactionDate) {
+    public AccountTransaction(Long transactionId, AccountType accountType, Long memberId, Long amount, LocalDate transactionDate, AccountTransactionDetailsDto details) {
         this.transactionId = transactionId;
         this.accountType = accountType;
         this.memberId = memberId;
         this.amount = amount;
         this.transactionDate = transactionDate;
+        this.details = details;
     }
 
     @Id
@@ -54,7 +58,7 @@ public class AccountTransaction implements Serializable {
     }
 
     @Column(name = "TX_DATE")
-    public Long getTransactionDate() {
+    public LocalDate getTransactionDate() {
         return transactionDate;
     }
 
@@ -74,8 +78,16 @@ public class AccountTransaction implements Serializable {
         this.amount = amount;
     }
 
-    public void setTransactionDate(Long transactionDate) {
+    public void setTransactionDate(LocalDate transactionDate) {
         this.transactionDate = transactionDate;
+    }
+
+    public AccountTransactionDetailsDto getDetails() {
+        return details;
+    }
+
+    public void setDetails(AccountTransactionDetailsDto details) {
+        this.details = details;
     }
 
     @Override
@@ -101,4 +113,5 @@ public class AccountTransaction implements Serializable {
                 ", transactionDate=" + transactionDate +
                 '}';
     }
+
 }
