@@ -17,7 +17,6 @@ import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
-@SpringBootTest
 @ContextConfiguration(classes = {RepositoryTestConfig.class})
 public class AccountTypeRepositoryTest {
 
