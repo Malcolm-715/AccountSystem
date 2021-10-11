@@ -48,6 +48,8 @@ public class CreateAccountTypeFlowImplTest {
         try {
             flow.create(new AccountTypeDto());
             fail("Should throw an exception");
-        } catch (Exception e){}
+        } catch (Exception e){
+            throw e;
+        }
     }
 }
